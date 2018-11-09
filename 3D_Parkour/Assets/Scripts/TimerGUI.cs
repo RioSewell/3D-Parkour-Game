@@ -9,12 +9,16 @@ public class TimerGUI : MonoBehaviour {
     float getT;
     LevelTimer levelT;
     Level l0;
+    GameManager gm;
 
 	// Use this for initialization
 	void Start () {
 
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        string thisLevel = gm.getActiveScene();
+
         t = GetComponent<Text>();
-        l0 = GameObject.Find("Level 0").GetComponent<Level>();
+        l0 = GameObject.Find(thisLevel).GetComponent<Level>();
         levelT = l0.getLevelTimer();
 	}
 	

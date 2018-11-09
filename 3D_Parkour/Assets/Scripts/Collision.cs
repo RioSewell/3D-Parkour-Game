@@ -12,9 +12,12 @@ public class Collision : MonoBehaviour {
 
     void Start()
     {
-        l0 = GameObject.Find("Level 0").GetComponent<Level>();
-        levelT = l0.getLevelTimer();
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        string thislevel = gm.getActiveScene();
+
+        l0 = GameObject.Find(thislevel).GetComponent<Level>();
+        levelT = l0.getLevelTimer();
+      
     }
 
     private void OnTriggerEnter(Collider other)

@@ -160,7 +160,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             if (m_IsGrounded)
             {
-                m_RigidBody.drag = 5f;
+                //m_RigidBody.drag = 5f;
 
                 if (m_Jump)
                 {
@@ -211,11 +211,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private Vector2 GetInput()
         {
-            
+
             Vector2 input = new Vector2
-                {
-                    x = CrossPlatformInputManager.GetAxis("Horizontal"),
-                    y = CrossPlatformInputManager.GetAxis("Vertical")
+            {
+                //x = CrossPlatformInputManager.GetAxis("Horizontal"),
+                //y = CrossPlatformInputManager.GetAxis("Vertical")
+                    x = 0.0f,
+                    y = 1.0f,
                 };
 			movementSettings.UpdateDesiredTargetSpeed(input);
             return input;

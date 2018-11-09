@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Level : MonoBehaviour {
 
-    float goalTime = 30.0f;
-    int levelNum;
-    public string LevelName;
+    public float goalTime = 30.0f;
+    public int levelNum;
     float bestTime = 1000.0f;
     LevelTimer levelT;
 
     void Awake()
     {
+        DontDestroyOnLoad(this.gameObject);
         levelT = GetComponent<LevelTimer>();
     }
 

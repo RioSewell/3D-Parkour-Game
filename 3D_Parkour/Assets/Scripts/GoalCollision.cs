@@ -12,9 +12,13 @@ public class GoalCollision : MonoBehaviour {
 
     void Start()
     {
-        l0 = GameObject.Find("Level 0").GetComponent<Level>();
-        levelT = l0.getLevelTimer();
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        string thisLevel = gm.getActiveScene();
+        Debug.Log(thisLevel);
+
+        l0 = GameObject.Find(thisLevel).GetComponent<Level>();
+        levelT = l0.getLevelTimer();
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -29,6 +33,7 @@ public class GoalCollision : MonoBehaviour {
 
             if(t < l0.getGoalTime())
             {
+                gm.LevelComplete();
                 Debug.Log("Level Beaten! Good Job");
             }
         }
